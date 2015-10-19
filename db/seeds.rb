@@ -8,7 +8,14 @@ include RandomData
  )
 end
 topics = Topic.all
-
+# Create SponsoredPosts
+15.times do
+ SponsoredPost.create!(
+   name:         RandomData.random_sentence,
+   description:  RandomData.random_paragraph
+ )
+end
+sponsoredposts = Topic.all
  # Create Posts
  50.times do
  # #1
