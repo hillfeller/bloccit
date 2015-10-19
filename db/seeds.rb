@@ -15,7 +15,7 @@ topics = Topic.all
    description:  RandomData.random_paragraph
  )
 end
-sponsoredposts = Topic.all
+sponsoredposts = SponsoredPost.all
  # Create Posts
  50.times do
  # #1

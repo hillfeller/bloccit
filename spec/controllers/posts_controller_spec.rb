@@ -7,7 +7,7 @@ RSpec.describe PostsController do
 # #13
   let(:my_post) { my_topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph) }
 
-  let(my_sponsoredpost){my_topic.sponsoredposts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_sentence)}
+  let(my_sponsoredpost){my_topic.sponsored_posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_sentence)}
 
 # #14
 
