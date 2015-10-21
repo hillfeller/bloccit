@@ -18,17 +18,18 @@
 
       <%= form_group_tag(@user.errors[:name]) do %>
         <%= f.label :name %>
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: "Enter name" %>
       <% end %>
       <%= form_group_tag(@user.errors[:email]) do %>
         <%= f.label :email %>
-        <%= f.email_field :email%>
+        <%= f.email_field :email, class: 'form-control', placeholder: "Enter email" %>
       <% end %>
+
 
       <div class="form-group">
         <%= button_to "Yes", {:controller => "users", :action => "confirm", :params => params}, class: 'btn btn-success' %>
         <%= button_to "No", {:controller => "users", :action => "create", :params => params}, class: 'btn btn-danger' %>
-
+      </div>
     <% end %>
   </div>
 </div>

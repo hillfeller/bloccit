@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "Welcome to Bloccit #{@user.name}!"
-      redirect_to confirm_path
+      redirect_to root_path
     else
       flash[:error] = "There was an error creating your account. Please try again."
       render :new
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "Account information has been confirmed!"
-      render :confirm
+      render @users
     else
       flash[:error] = "You have chosen not to confirm this information."
       render :new
@@ -50,7 +50,4 @@ class UsersController < ApplicationController
       render :show
     end
   end
-
-
-
 end
