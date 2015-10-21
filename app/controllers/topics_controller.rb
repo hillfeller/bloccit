@@ -52,7 +52,7 @@ class TopicsController < ApplicationController
 
     if @topic.destroy
       flash[:notice] = "\"#{@topic.name}\" was deleted successfully."
-      redirect_to action: :index
+      redirect_to topics_path
     else
       flash[:error] = "There was an error deleting the topic."
       render :show

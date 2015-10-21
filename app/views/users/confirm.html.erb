@@ -1,0 +1,34 @@
+<h2>Sign Up Confirmation</h2>
+<h4>Are you sure these values are correct?</h4>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for @user, :url => { :action => :confirm } do |f| %>
+
+      <% if @user.errors.any? %>
+        <div class="alert alert-danger">
+          <h4><%= pluralize(@user.errors.count, "error") %>.</h4>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_group_tag(@user.errors[:name]) do %>
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true %>
+      <% end %>
+      <%= form_group_tag(@user.errors[:email]) do %>
+        <%= f.label :email %>
+        <%= f.email_field :email%>
+      <% end %>
+
+      <div class="form-group">
+        <%= button_to "Yes", {:controller => "users", :action => "confirm", :params => params}, class: 'btn btn-success' %>
+        <%= button_to "No", {:controller => "users", :action => "create", :params => params}, class: 'btn btn-danger' %>
+
+    <% end %>
+  </div>
+</div>
