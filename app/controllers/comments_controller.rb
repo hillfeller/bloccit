@@ -10,11 +10,9 @@ class CommentsController < ApplicationController
 
     if comment.save
       flash[:notice] = "Comment saved successfully."
-# #12
       redirect_to [@post.topic, @post]
     else
       flash[:error] = "Comment failed to save."
-# #13
       redirect_to [@post.topic, @post]
     end
   end
@@ -38,7 +36,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:body)
   end
-  
+
   def authorize_user
     comment = Comment.find(params[:id])
     unless current_user == comment.user || current_user.admin?
