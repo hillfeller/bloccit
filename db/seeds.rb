@@ -1,7 +1,7 @@
 include RandomData
 
 
-5.times do
+6.times do
   user = User.create!(
 
   name:     RandomData.random_name,
@@ -41,9 +41,18 @@ posts = Post.all
  )
 end
 
-user = User.first
-user.update_attributes!(
-  email: 'hillfeller@gmail.com',
+# Create an admin user
+admin = User.create!(
+  name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'helloworld',
+  role:     'admin'
+)
+
+# Create a member
+member = User.create!(
+  name:     'Member User',
+  email:    'member@example.com',
   password: 'helloworld'
 )
 
