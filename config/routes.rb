@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   end
 
   get 'about' => 'welcome#about'
-
   root to: 'welcome#index'
 
   resources :posts, only: [] do
@@ -13,5 +12,4 @@ Rails.application.routes.draw do
   end
 
   resources :labels, only: [:show]
-
-end
+  end
