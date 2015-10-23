@@ -51,12 +51,27 @@ RSpec.describe Post, type: :model do
       end
     end
 
+    describe "#create_vote" do
+      it "sets post up_votes to 1"
+        expect( post.up_votes).to eq(1)
+      end
+
+      it "calls #create_vote when post is created" do
+        post = topic.posts.new(title: RandomData.random_sentence, body: RandomData.random_sentence, user: user)
+        expect( post).to receive(:create_vote)
+      end
+
+      it "associates vote with creator of post" do
+        expect(post.votes.first.user).to eq(post.user)
+      end
+    end
+
     describe "#points" do
       it "returns the sum of all down and up votes" do
         expect( post.points ).to eq(@up_votes - @down_votes)
       end
     end
-    
+
     describe "#update_rank" do
       it "calculates the correct rank" do
         post.update_rank

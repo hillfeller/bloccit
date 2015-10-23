@@ -65,6 +65,7 @@ RSpec.describe VotesController, type: :controller do
         expect(response).to redirect_to(my_topic)
       end
     end
+
     describe "POST down_vote" do
       it "the users first vote increases number of post votes by one" do
         votes = user_post.votes.count
