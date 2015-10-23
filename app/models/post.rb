@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   has_many :labels, through: :labelings
   has_many :votes, dependent: :destroy
   after_create :create_vote
+  has_many :favorites, dependent: :destroy
 
   default_scope { order('rank DESC') }
 
