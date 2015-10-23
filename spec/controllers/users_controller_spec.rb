@@ -1,4 +1,6 @@
 require 'rails_helper'
+include RandomData
+include SessionsHelper
 
 RSpec.describe UsersController, type: :controller do
 

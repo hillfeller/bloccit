@@ -1,6 +1,6 @@
 require 'rails_helper'
- include RandomData
- include SessionsHelper
+include RandomData
+include SessionsHelper
 
  RSpec.describe PostsController, type: :controller do
    let(:my_user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
