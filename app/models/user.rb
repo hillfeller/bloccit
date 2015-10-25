@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
 
   before_save { self.email = email.downcase }
-  before_save { self.name = name.split.each{|name_part| name_part.capitalize!}.join(' ')}
+  before_save { self.name = name.split.each{|n| n.capitalize!}.join(' ')}
   before_save { self.role ||= :member }
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -28,6 +28,11 @@ class User < ActiveRecord::Base
 
   def favorite_for(post)
     favorites.where(post_id: post.id).first
+  end
+
+  def self.avatar_url(user, size)
+    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end
 
 end
