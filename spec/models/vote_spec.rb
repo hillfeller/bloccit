@@ -5,7 +5,7 @@ include RandomData
    let(:topic) { create(:topic) }
    let(:user) { create(:user) }
    let(:post) { create(:post) }
-   let(:vote) { create(:vote) }
+   let(:vote) { Vote.create!(value: 1, post: post, user: user) }
 
    it { should belong_to(:post) }
    it { should belong_to(:user) }

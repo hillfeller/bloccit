@@ -4,6 +4,7 @@ include RandomData
 RSpec.describe Topic, type: :model do
 
   let(:topic) { create(:topic) }
+  
   it { should have_many(:posts) }
   it { should have_many(:labelings) }
   it { should have_many(:labels).through(:labelings) }
