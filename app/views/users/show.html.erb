@@ -8,19 +8,31 @@
           <%= image_tag avatar_url, class: 'media-object' %>
         </div>
       <% end %>
-      <div class="media-body">
-        <h2 class="media-heading"><%= @user.name %></h2>
-        <small>
-          <%= pluralize(@user.posts.count, 'post') %>,
-          <%= pluralize(@user.comments.count, 'comment') %>
-        </small>
+      <% if @user.comments.count == 0 && @user.posts.count == 0 %>
+        <%= "no comments or posts" %>
+      <% else %>
+        <div class="media-body">
+          <h2 class="media-heading"><%= @user.name %></h2>
+          <small>
+            <%= pluralize(@user.posts.count, 'post') %>,
+            <%= pluralize(@user.comments.count, 'comment') %>
+            <%= pluralize(@user.votes.count, 'vote') %>
+
+          </small>
       </div>
+      <% end %>
+
     </div>
   </div>
 </div>
 
 <h2>Posts</h2>
 <%= render @user.posts %>
+
+
+<h2>Favorite Posts</h2>
+<%= @user.favorites.count%>
+
 
 <h2>Comments</h2>
 <%= render @user.comments %>

@@ -7,6 +7,7 @@ class Comment < ActiveRecord::Base
 
   after_create :send_favorite_emails
 
+  
   private
 
   def send_favorite_emails
