@@ -51,6 +51,7 @@ admin = User.create!(
   role:     'admin'
 )
 
+
 member = User.create!(
   name:     'Member User',
   email:    'member@example.com',

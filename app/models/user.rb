@@ -35,4 +35,9 @@ class User < ActiveRecord::Base
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end
 
+  def favorite_posts
+    #favorites.map {|favorite| favorite.post }
+    favorites.map(&:post)
+  end
+
 end

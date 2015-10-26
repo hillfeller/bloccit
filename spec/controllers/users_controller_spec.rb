@@ -39,7 +39,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "sets user name properly" do
         post :create, user: new_user_attributes
-        expect(assigns(:user).name).to eq new_user_attributes[:name]
+        expect(assigns(:user).name).to eq "Blochead"
       end
 
       it "sets user email properly" do
