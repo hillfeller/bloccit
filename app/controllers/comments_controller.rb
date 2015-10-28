@@ -7,16 +7,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
     @new_comment = Comment.new
-    
+
     if @comment.save
       flash[:notice] = "Comment saved successfully."
     else
       flash[:error] = "Comment failed to save."
-    end
-
-    respond_to do |format|
-      format.html
-      format.js
     end
   end
 
@@ -28,11 +23,6 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment was deleted."
     else
       flash[:error] = "Comment couldn't be deleted. Try again."
-    end
-
-    respond_to do |format|
-      format.html
-      format.js
     end
   end
 

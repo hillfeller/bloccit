@@ -1,5 +1,5 @@
 <div class="vote-arrows pull-left">
   <div><%= link_to " ", post_up_vote_path(post), class: 'glyphicon glyphicon-chevron-up', method: :post, remote: true %></div>
- <div><strong><%= post.points %></strong></div>
+ <div><strong id="vote-<%= post.id %>"><%= post.points %></strong></div>
   <div><%= link_to " ", post_down_vote_path(post), class: 'glyphicon glyphicon-chevron-down', method: :post, remote: true %></div>
 </div>
