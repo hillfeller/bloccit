@@ -44,6 +44,12 @@ posts = Post.all
  )
 end
 
+member = User.create!(
+  name:     'Canyon',
+  email:    'canyon.the.malamute@gmail.com',
+  password: 'password'
+)
+
 admin = User.create!(
   name:     'Admin User',
   email:    'admin@example.com',
@@ -58,11 +64,7 @@ member = User.create!(
   password: 'helloworld'
 )
 
-member = User.create!(
-  name:     'Hillary Feller',
-  email:    'hillfeller@gmail.com',
-  password: 'helloworld'
-)
+
 
 puts "Seed finished"
 puts "#{User.count} users created"
