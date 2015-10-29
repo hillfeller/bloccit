@@ -32,6 +32,15 @@ class Api::V1::TopicsController < Api::V1::BaseController
     else
       render json: {error: "Topic is invalid", status: 400}, status: 400
     end
+
+    @post = @topic.posts.build(post_params)
+    @post.user = current_user
+
+    if @post.valid?
+      render json: post.to_json, status: 201
+    else
+      render json: {error: "Post is invalid", status: 400}, status: 400
+    end
   end
 
   def destroy
