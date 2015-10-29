@@ -8,9 +8,10 @@ class Api::V1::PostsController < Api::V1::TopicsController
     render json: posts.to_json, status: 200
   end
 
+
   def show
     post = Post.find(params[:id])
-    render json: post.to_json, status: 200
+    render json: post.to_json(include: [:comments, :votes, :favorites]), status: 200
   end
 
   def update
