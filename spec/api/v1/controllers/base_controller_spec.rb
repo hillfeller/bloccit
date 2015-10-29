@@ -4,7 +4,6 @@ RSpec.describe Api::V1::BaseController, type: :controller do
   let(:my_user) { create(:user) }
 
   context "authorized user" do
-# #4
     before do
       controller.request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(my_user.auth_token)
       controller.authenticate_user
@@ -12,7 +11,6 @@ RSpec.describe Api::V1::BaseController, type: :controller do
 
     describe "#authenticate_user" do
       it "finds a user by their authentication token" do
-# #5
         expect(assigns(:current_user)).to eq my_user
       end
     end
